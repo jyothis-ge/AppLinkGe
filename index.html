@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        let userAgent = navigator.userAgent;
+        let urlToCheck = 'https://geapps.germanexperts.ae/GeAppLink/RentACarDetailsPage/23/23/A3/508168169/51/null/AHMADABDULLAH/10';
+
+        function checkResourceExists(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    callback(xhr.status === 200);
+                }
+            };
+            xhr.open('HEAD', url, true);
+            xhr.send();
+        }
+
+        window.onload = function () {
+            // Check if the incoming link is other than https://jyothishkoladath.github.io
+            if (window.location.href !== 'https://geapps.germanexperts.ae/GeAppLink') {
+                // Redirect to the default app store link
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    // The user is using iOS (iPhone, iPad, iPod)
+                    window.location.href = 'https://apps.apple.com/ae/app/german-experts/id1620328363';
+                } else if (/Android/.test(userAgent)) {
+                    // The user is using Android
+                    window.location.href = 'https://play.google.com/store/apps/details?id=com.experts.german_e&hl=en&gl=US&pli=1';
+                } else {
+                    // Redirect to the default app store link
+                    window.location.href = 'https://apps.apple.com/ae/app/german-experts/id1620328363';
+                }
+            } else {
+                // Check if the specified URL exists
+                checkResourceExists(urlToCheck, function (exists) {
+                    if (!exists) {
+                        // Resource does not exist, redirect based on device
+                        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                            // The user is using iOS (iPhone, iPad, iPod)
+                            window.location.href = 'https://apps.apple.com/ae/app/german-experts/id1620328363';
+                        } else if (/Android/.test(userAgent)) {
+                            // The user is using Android
+                            window.location.href = 'https://play.google.com/store/apps/details?id=com.experts.german_e&hl=en&gl=US&pli=1';
+                        } else {
+                            // Redirect to the default app store link
+                            window.location.href = 'https://apps.apple.com/ae/app/german-experts/id1620328363';
+                        }
+                    }
+                });
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

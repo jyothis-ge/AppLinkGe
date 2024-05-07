@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.experts.german_e",
+    "sha256_cert_fingerprints":
+    ["5D:8A:98:EF:E4:11:A9:F8:BC:47:90:9F:B3:39:AB:2F:13:55:B1:51:14:89:73:65:36:9A:79:FA:FF:35:0B:99"]
+  }
+}]
